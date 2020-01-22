@@ -35,7 +35,7 @@ delay = 3600
 max_search = 10
 # SORT MODE | Sortierung der Liste (-1 = Normale Listung)
 sort_mode = '-1'
-# SMTP SERVER | SMTP Serveradresse
+# SMTP SERVER | SMTP Server Adresse
 smtp_server = 'SMTPADDRESS'
 # SMTP PORT | SMTP Serverport
 smtp_port = 25
