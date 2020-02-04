@@ -4,7 +4,6 @@
 # TO-DO Liste:
 #   - Suchkriterien erweitern
 #   - GUI Erstellen
-#   - An webserver optimieren (Flask o.ä.)
 
 import requests as req
 from bs4 import BeautifulSoup as soup
@@ -20,9 +19,9 @@ import sys
 # Veränderbare Variablen
 # ------------------------------------------------------------------------------
 # RECEIVER NAME | Dein Vorname
-receiver_name = 'YOURNAME'
+receiver_name = 'YOUR_FIRSTNAME'
 # EMPFAENGER | Deine E-Mail Adresse
-empfaenger = 'YOURMAIL'
+empfaenger = 'YOUR_EMAIL'
 # LOCATION | Postleitzahl
 location = 12345
 # PERIMETER | Umkreis
@@ -35,16 +34,16 @@ delay = 3600
 max_search = 10
 # SORT MODE | Sortierung der Liste (-1 = Normale Listung)
 sort_mode = '-1'
-# SMTP SERVER | SMTP Server Adresse
-smtp_server = 'SMTPADDRESS'
+# SMTP SERVER | SMTP Serveradresse
+smtp_server = 'SMTP_SERVER_ADDRESS'
 # SMTP PORT | SMTP Serverport
 smtp_port = 25
 # SMTP USER | SMTP Benutzername zum E-Mail Konto (ggf. identisch mit SENDERMAIL)
-smtp_user = 'SMTPUSER'
+smtp_user = 'SMTP_SERVER_USER'
 # SMTP PASS | SMTP Passwort zum E-Mail Konto
-smtp_pass = 'SMTPPASS'
+smtp_pass = 'SMTP_SERVER_PASS'
 # SENDERMAIL | E-Mail Adresse welche als Sender verwendet wird (ggf. identisch mit SMTP USER)
-sendermail = 'SMTPMAIL'
+sendermail = 'SMTP_EMAIL_ADDRESS'
 ################################################################################
 
 
@@ -618,13 +617,13 @@ while True:
         """
 
     message = MIMEMultipart("alternative")
-    message["Subject"] = 'IHK Lehrstellenbörsen Abruf'
+    message["Subject"] = 'IHK Lehrstellen Caller'
     message["From"] = sendermail
     message["To"] = empfaenger
 
     part2 = MIMEText(html, "html")
     message.attach(part2)
 
-    bot.send_mail('IHK Lehrstellenbörse Abruf', message, sendermail, empfaenger)
+    bot.send_mail('IHK Lehrstellen Caller', message, sendermail, empfaenger)
 
     time.sleep(delay)
